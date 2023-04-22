@@ -2280,6 +2280,18 @@ static_assert(std::is_same<int, int>::value);
 static_assert(std::is_same<std::conditional<true, int, double>::type, int>::value);
 ```
 
+### std::mt19937
+The mt19937engine is a high-quality PRNG that produces random numbers with good statistical properties and a long period
+```c++
+#include <random>
+
+std::random_device rd;
+std::mt19937 mt(rd());
+
+std::uniform_int_distribution<int> dist(1, 100);
+int random_number = dist(mt);
+```
+
 ### Smart pointers
 C++11 introduces new smart pointers: `std::unique_ptr`, `std::shared_ptr`, `std::weak_ptr`. `std::auto_ptr` now becomes deprecated and then eventually removed in C++17.
 
